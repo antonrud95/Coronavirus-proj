@@ -24,8 +24,6 @@ const SEO: FC<Props> = ({
       query {
         site {
           siteMetadata {
-            title
-            description
             author
           }
         }
@@ -41,7 +39,7 @@ const SEO: FC<Props> = ({
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`Covid`}
       meta={[
         {
           name: `description`,
