@@ -1,19 +1,19 @@
 @import 'src/styles/variables';
 .button {
-  font-family: 'Arial', sans-serif;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-weight: 500;
   color: white;
-  background-color: $primary;
+  background-color: $coloredtext;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 48px;
+  min-height: 55px;
   border: none;
-  border-radius: 10px;
+  border-radius: 27px;
   transition: all 0.1s ease-in-out;
-  padding-left: $p-xl;
-  padding-right: $p-xl;
+  padding-left: $p-xxl;
+  padding-right: $p-xxl;
   white-space: nowrap;
   cursor: pointer;
   &:hover {
@@ -27,13 +27,19 @@
   }
 }
 .primary {
-  background-color: #353057;
+  background-color: transparent;
+  color: $coloredtext;
+  border: 2px solid $coloredtext;
   &:hover,
   &:focus {
-    background-color: #353057;
+    background-color: $coloredtext;
+    border: 2px solid $coloredtext;
+    color: #fff;
   }
   &:active {
-    background-color: #353057 !important;
+    background-color: $coloredtext !important;
+    border: 2px solid $coloredtext !important;
+    color: #fff;
   }
 }
 .secondary {

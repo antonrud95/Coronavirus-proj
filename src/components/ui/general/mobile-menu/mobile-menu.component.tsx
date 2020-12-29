@@ -29,16 +29,19 @@ const MobileMenu: FC<Props> = ({ isShown, toggle }) => {
       </Container>
       <Container className={styles.linkBlock}>
         <Link to="/" className={styles.link}>
-          Nav Item #1
+          Overview
         </Link>
         <Link to="/" className={styles.link}>
-          Nav Item #2
+          Contagion
         </Link>
         <Link to="/" className={styles.link}>
-          Nav Item #3
+          Symptoms
         </Link>
-        <Button variant={'primary'} additionalClasses={[styles.buttonRoot]}>
-          Button
+        <Link to="/" className={styles.link}>
+          Preventions
+        </Link>
+        <Button variant={'primary'}>
+          Contact
         </Button>
       </Container>
     </div>

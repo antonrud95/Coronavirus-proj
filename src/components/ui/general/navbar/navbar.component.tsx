@@ -18,6 +18,10 @@ const SNavbar = () => {
     toggleMenu(true)
   }
 
+  const activeStyles = {
+    color: 'red'
+  }
+
   return (
     <Navbar
       fixed="top"
@@ -32,17 +36,20 @@ const SNavbar = () => {
 
         <Nav className={classnames(styles.nav, 'mr-4', 'ml-auto')}>
           <Link to="/" className={styles.navLink}>
-            Nav Item #1
+            Overview
           </Link>
           <Link to="/" className={styles.navLink}>
-            Nav Item #2
+            Contagion
           </Link>
           <Link to="/" className={styles.navLink}>
-            Nav Item #3
+            Symptoms
+          </Link>
+          <Link to="/" className={styles.navLink}>
+            Preventions
           </Link>
         </Nav>
         <Nav className={styles.nav}>
-          <Button variant={'primary'}>Button</Button>
+          <Button variant={'primary'}>Contact</Button>
         </Nav>
       </Container>
       <MobileMenu isShown={isMenuShown} toggle={toggleMenu} />

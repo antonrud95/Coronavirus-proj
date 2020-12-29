@@ -3,7 +3,8 @@ require('dotenv').config()
 const path = require('path')
 const {
   GATSBY_ACTIVE_ENV,
-  GATSBY_CMS_URL,
+  GRAPHCMS_ENDPOINT,
+  GRAPHCMS_TOKEN,
   GATSBY_SITE_URL,
   GATSBY_TITLE,
   GATSBY_DESCRIPTION,
@@ -27,6 +28,24 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `red hat display\:400,500,700`,
+        ],
+        display: 'swap'
+      }
+    },
+    {
+      resolve: 'gatsby-source-graphcms',
+        options: {
+          // Your GraphCMS API endpoint. Available from your project settings.
+          endpoint: GRAPHCMS_ENDPOINT,
+          // A PAT (Permanent Auth Token) for your project. Required if your project is not available publicly, or you want to scope access to a specific content stage (i.e. draft content).
+          token: GRAPHCMS_TOKEN
+        },
+    },
+    {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
@@ -48,16 +67,6 @@ module.exports = {
           '~': path.resolve(__dirname, 'src'),
         },
         extensions: [],
-      },
-    },
-    {
-      resolve: 'gatsby-source-strapi',
-      options: {
-        apiURL: GATSBY_CMS_URL,
-        contentTypes: [
-          // Insert list of resources
-        ],
-        queryLimit: 1000,
       },
     },
     'gatsby-transformer-sharp',
