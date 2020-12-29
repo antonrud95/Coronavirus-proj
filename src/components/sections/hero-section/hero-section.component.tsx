@@ -1,31 +1,52 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import { Container } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
+import SButton from '~/components/ui/general/button/button.component'
+import Media from 'react-media';
 
 import styles from './hero-section.module.scss'
 import Img from 'gatsby-image'
+import FC from '~/types/fc'
+import {Hero} from '~/types/hero.type'
 
-const HeroSection = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      unicornPic: file(relativePath: { eq: "images/global/unicorn-pic.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 500, quality: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
+interface Props {
+  hero: Hero
+}
+
+const HeroSection:FC<Props> = ({hero}) => {
   return (
-    <Container>
-      <div className={styles.heroBlock}>
-        <Img
-          fluid={data.unicornPic.childImageSharp.fluid}
-          className={styles.pic}
-        />
-        <p className={styles.heroTitle}>To Stop Coronavirus Quarantine</p>
-      </div>
+    <Container fluid className={styles.fluidContainer}>
+      <Container className={styles.innerContainer}>
+        <div className={styles.contentContainer}>
+          <h3 className={styles.heroTitle}>{hero.title}</h3>
+          <h1 className={styles.heroMainTitle}>{hero.description}</h1>
+          <p className={styles.heroText}>{hero.text}</p>
+          <SButton variant="secondary" className={styles.heroBtn}>Let us help</SButton>
+        </div>
+        <Media query={{ maxWidth: 1199 }}>
+          {matches =>
+            matches ? (
+              <Img
+                fluid={hero.image.localFile.childImageSharp.fluid}
+                className={styles.pic}
+              />
+            ) : (
+              null
+            )
+          }
+        </Media>
+      </Container>
+      <Media query={{ minWidth: 1200 }}>
+        {matches =>
+          matches ? (
+            <Img
+              fluid={hero.image.localFile.childImageSharp.fluid}
+              className={styles.outerImg}
+            />
+          ) : (
+            null
+          )
+        }
+      </Media>
     </Container>
   )
 }

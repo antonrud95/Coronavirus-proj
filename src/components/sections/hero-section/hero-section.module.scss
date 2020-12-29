@@ -1,20 +1,75 @@
 @import 'src/styles/variables';
 @import 'src/styles/mixins';
 
-.hero-block {
+
+.fluid-container {
+  padding-top: 7rem;
   display: flex;
-  height: 95vh;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.pic {
-  width: 300px;
-  @include breakpoint('tablet') {
-    width: 500px;
+  @include breakpoint('mobile') {
+    padding-top: 9rem;
   }
 }
+
+.inner-container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  @include breakpoint('mobile') {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
+
+.hero-title {
+  color: $coloredtext;
+}
+
+.hero-btn {
+  width: 100%;
+  margin-bottom: 24px;
+  @include breakpoint('mobile') {
+    max-width: 250px;
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 700;
+    padding: 24px 57px;
+    border-radius: 40px;
+  }
+}
+
+// .pic {
+//   width: 300px;
+//   @include breakpoint('tablet') {
+//     width: 500px;
+//   }
+// }
+
+.outer-img {
+  width: 100%;
+  max-width: 800px;
+  position: absolute !important;
+  top: 144px;
+  right: 0;
+}
+
+.content-container {
+  @include breakpoint('desktop') {
+    padding-top: 11rem;
+  }
+}
+
 .hero-title {
   font-size: 24px;
   font-weight: 700;
+}
+
+.hero-main-title {
+  @include breakpoint('desktop') {
+    width: 50%;
+  }
+}
+
+.hero-text {
+  @include breakpoint('desktop') {
+    width: 50%;
+  }
 }

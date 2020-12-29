@@ -2,8 +2,11 @@
 @import 'src/styles/mixins';
 .navbar {
   background-color: transparent;
-  padding: 1.75rem 0;
+  padding: 1.25rem 0;
   transition: all 0.1s ease-in-out;
+  @include breakpoint('mobile') {
+    padding: 1.75rem 0;
+  }
 }
 .nav {
   display: none;

@@ -43,18 +43,18 @@
   }
 }
 .secondary {
-  color: $primary;
-  background-color: transparent;
-  border: 2px solid $primary;
+  color: #fff;
+  background-color: $coloredtext;
+  border: 2px solid $coloredtext;
   &:hover,
   &:focus {
-    color: $primary;
-    background-color: transparent;
-    border: 2px solid $primary;
+    color: $coloredtext;
+    background-color: transparent !important;
+    border: 2px solid $coloredtext !important;
   }
   &:active {
-    color: $primary !important;
+    color: $coloredtext !important;
     background-color: transparent !important;
-    border: 2px solid $primary !important;
+    border: 2px solid $coloredtext !important;
   }
 }
