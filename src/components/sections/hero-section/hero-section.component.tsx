@@ -1,7 +1,9 @@
 import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import SButton from '~/components/ui/general/button/button.component'
 import Media from 'react-media';
+
+import useVirusAssets from '~/hooks/queries/useVirusAssets'
 
 import styles from './hero-section.module.scss'
 import Img from 'gatsby-image'
@@ -13,6 +15,7 @@ interface Props {
 }
 
 const HeroSection:FC<Props> = ({hero}) => {
+  const { virusImage } = useVirusAssets()
   return (
     <Container fluid className={styles.fluidContainer}>
       <Container className={styles.innerContainer}>
@@ -20,6 +23,7 @@ const HeroSection:FC<Props> = ({hero}) => {
           <h3 className={styles.heroTitle}>{hero.title}</h3>
           <h1 className={styles.heroMainTitle}>{hero.description}</h1>
           <p className={styles.heroText}>{hero.text}</p>
+          {/* <Img fluid={virusImage.childImageSharp.fluid}/> */}
           <SButton variant="secondary" className={styles.heroBtn}>Let us help</SButton>
         </div>
         <Media query={{ maxWidth: 1199 }}>
@@ -27,7 +31,6 @@ const HeroSection:FC<Props> = ({hero}) => {
             matches ? (
               <Img
                 fluid={hero.image.localFile.childImageSharp.fluid}
-                className={styles.pic}
               />
             ) : (
               null
