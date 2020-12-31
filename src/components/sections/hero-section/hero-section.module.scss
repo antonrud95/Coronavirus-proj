@@ -1,15 +1,15 @@
 @import 'src/styles/variables';
 @import 'src/styles/mixins';
 
-
 .fluid-container {
   padding-top: 7rem;
+  padding-bottom: 3rem;
   display: flex;
   @include breakpoint('mobile') {
     padding-top: 9rem;
+    padding-bottom: 12rem;
   }
 }
-
 .inner-container {
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -18,11 +18,9 @@
     padding-right: 15px !important;
   }
 }
-
 .hero-title {
   color: $coloredtext;
 }
-
 .hero-btn {
   width: 100%;
   margin-bottom: 24px;
@@ -35,34 +33,181 @@
     border-radius: 40px;
   }
 }
-
-.outer-img {
+.content-container {
+  @include breakpoint('desktop') {
+    padding-top: 11rem;
+  }
+  @include breakpoint('desktop-large') {
+    padding-top: 16.5rem;
+  }
+}
+.hero-title {
+  font-size: 24px;
+  font-weight: 700;
+}
+.hero-main-title {
+  @include breakpoint('desktop') {
+    width: 50%;
+  }
+  @include breakpoint('desktop-large') {
+    width: 45%;
+  }
+}
+.hero-text {
+  @include breakpoint('desktop') {
+    width: 50%;
+  }
+}
+.hero-image-wrapper {
+  overflow-x: hidden !important;
   width: 100%;
   max-width: 800px;
   position: absolute !important;
   top: 144px;
   right: 0;
-}
-
-.content-container {
-  @include breakpoint('desktop') {
-    padding-top: 11rem;
+  @include breakpoint('desktop-large') {
+    max-width: 1050px;
+  }
+  .hero-inner-image-wrapper {
+    position: relative !important;
+    .virus-one {
+      position: absolute !important;
+      top: 0;
+      left: 10px;
+      width: 100%;
+      max-width: 150px;
+      animation: scale 3s ease-in-out infinite;
+      @include breakpoint('desktop-large') {
+        top: 30px;
+        max-width: 193px;
+        animation: scale-one-big 3s ease-in-out infinite;
+      }
+    }
+    .virus-two {
+      position: absolute !important;
+      top: 120px;
+      left: 300px;
+      width: 100%;
+      max-width: 90px;
+      animation: scale-two 2s ease-in-out infinite;
+      @include breakpoint('desktop-large') {
+        max-width: 125px;
+        top: 160px;
+        left: 400px;
+        animation: scale-two-big 2s ease-in-out infinite;
+      }
+    }
+    .virus-three {
+      position: absolute !important;
+      top: 5px;
+      right: 0;
+      width: 100%;
+      max-width: 90px;
+      animation: scale-three 4s ease-in-out infinite;
+      @include breakpoint('desktop-large') {
+        max-width: 117px;
+      }
+    }
+    .virus-four {
+      position: absolute !important;
+      top: 50%;
+      right: 0 !important;
+      transform: translateY(-50%);
+      width: 100%;
+      max-width: 95px !important;
+      max-height: 190px;
+      animation: scale-four 3s ease-in-out infinite;
+      @include breakpoint('desktop-large') {
+        top: 50%;
+        max-width: 132px !important;
+        max-height: 264px;
+      }
+    }
   }
 }
 
-.hero-title {
-  font-size: 24px;
-  font-weight: 700;
-}
-
-.hero-main-title {
-  @include breakpoint('desktop') {
-    width: 50%;
+@keyframes scale {
+  0% {
+    transform: scale(1);
+    top: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    top: 10px;
+  }
+  100% {
+    transform: scale(1);
+    top: 0;
   }
 }
 
-.hero-text {
-  @include breakpoint('desktop') {
-    width: 50%;
+@keyframes scale-two {
+  0% {
+    transform: scale(1);
+    top: 120px;
+  }
+  50% {
+    transform: scale(1.1);
+    top: 130px;
+  }
+  100% {
+    transform: scale(1);
+    top: 120px;
+  }
+}
+@keyframes scale-three {
+  0% {
+    transform: scale(1);
+    top: 5px;
+  }
+  50% {
+    transform: scale(1.1);
+    top: 10px;
+  }
+  100% {
+    transform: scale(1);
+    top: 5px;
+  }
+}
+@keyframes scale-four {
+  0% {
+    transform: scale(1);
+    top: 50%;
+  }
+  50% {
+    transform: scale(1.1);
+    top: 48%;
+  }
+  100% {
+    transform: scale(1);
+    top: 50%;
+  }
+}
+@keyframes scale-one-big {
+  0% {
+    transform: scale(1);
+    top: 30px;
+  }
+  50% {
+    transform: scale(1.1);
+    top: 40px;
+  }
+  100% {
+    transform: scale(1);
+    top: 30px;
+  }
+}
+@keyframes scale-two-big {
+  0% {
+    transform: scale(1);
+    top: 160px;
+  }
+  50% {
+    transform: scale(1.1);
+    top: 170px;
+  }
+  100% {
+    transform: scale(1);
+    top: 160px;
   }
 }

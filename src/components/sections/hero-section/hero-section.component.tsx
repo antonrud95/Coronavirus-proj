@@ -2,6 +2,7 @@ import React from 'react'
 import { Container } from 'react-bootstrap'
 import SButton from '~/components/ui/general/button/button.component'
 import Media from 'react-media';
+import Fade from 'react-reveal/Fade';
 
 import useVirusAssets from '~/hooks/queries/useVirusAssets'
 
@@ -15,16 +16,23 @@ interface Props {
 }
 
 const HeroSection:FC<Props> = ({hero}) => {
-  const { virusImage } = useVirusAssets()
+  const { virusImageFirst, virusImageSecond, virusImageThird, virusImageFourth } = useVirusAssets()
   return (
     <Container fluid className={styles.fluidContainer}>
       <Container className={styles.innerContainer}>
         <div className={styles.contentContainer}>
-          <h3 className={styles.heroTitle}>{hero.title}</h3>
-          <h1 className={styles.heroMainTitle}>{hero.description}</h1>
-          <p className={styles.heroText}>{hero.text}</p>
-          {/* <Img fluid={virusImage.childImageSharp.fluid}/> */}
-          <SButton variant="secondary" className={styles.heroBtn}>Let us help</SButton>
+          <Fade bottom delay={550}>
+            <h3 className={styles.heroTitle}>{hero.title}</h3>
+          </Fade>
+          <Fade bottom delay={350}>
+            <h1 className={styles.heroMainTitle}>{hero.description}</h1>
+          </Fade>
+          <Fade bottom delay={250}>
+            <p className={styles.heroText}>{hero.text}</p>
+          </Fade>
+          <Fade bottom delay={200}>
+            <SButton variant="secondary" className={styles.heroBtn}>Let us help</SButton>
+          </Fade>
         </div>
         <Media query={{ maxWidth: 1199 }}>
           {matches =>
@@ -41,10 +49,19 @@ const HeroSection:FC<Props> = ({hero}) => {
       <Media query={{ minWidth: 1200 }}>
         {matches =>
           matches ? (
-            <Img
-              fluid={hero.image.localFile.childImageSharp.fluid}
-              className={styles.outerImg}
-            />
+            <div className={styles.heroImageWrapper}>
+              <div className={styles.heroInnerImageWrapper}>
+                <Img
+                  fluid={hero.image.localFile.childImageSharp.fluid}
+                  className={styles.outerImg}
+                />
+                <Img fluid={virusImageFirst.childImageSharp.fluid} className={styles.virusOne}/>
+                <Img fluid={virusImageSecond.childImageSharp.fluid} className={styles.virusTwo}/>
+                <Img fluid={virusImageThird.childImageSharp.fluid} className={styles.virusThree}/>
+                <Img fluid={virusImageFourth.childImageSharp.fluid} className={styles.virusFour}/>
+              </div>
+            </div>
+            
           ) : (
             null
           )

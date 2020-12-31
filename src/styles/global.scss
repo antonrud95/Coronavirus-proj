@@ -36,6 +36,10 @@ h1 {
     font-size: 48px !important;
     line-height: 66px !important;
   }
+  @include breakpoint('desktop-large') {
+    font-size: 52px !important;
+    line-height: 73px !important;
+  }
 }
 
 h3 {
@@ -44,6 +48,10 @@ h3 {
   @include breakpoint('mobile') {
     font-size: 26px !important;
     line-height: 33px !important;
+  }
+  @include breakpoint('desktop-large') {
+    font-size: 32px !important;
+    line-height: 39px !important;
   }
 }
 
@@ -55,6 +63,10 @@ p {
   @include breakpoint('mobile') {
     font-size: 20px !important;
     line-height: 42px !important;
+  }
+  @include breakpoint('desktop-large') {
+    font-size: 24px !important;
+    line-height: 46px !important;
   }
 }
 
