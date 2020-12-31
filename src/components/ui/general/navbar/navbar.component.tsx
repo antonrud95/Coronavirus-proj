@@ -3,6 +3,7 @@ import { Container, Navbar, Nav } from 'react-bootstrap'
 import { Link } from 'gatsby'
 import classnames from 'classnames'
 import Fade from 'react-reveal/Fade';
+import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 
 import Logo from '~/components/ui/general/logo/logo.component'
 import MobileMenu from '~/components/ui/general/mobile-menu/mobile-menu.component'
@@ -14,15 +15,25 @@ import styles from './navbar.module.scss'
 
 const SNavbar = () => {
   const [isMenuShown, toggleMenu] = useState(false)
-
+  const [isOnTop, setOnTop] = useState(true)
   const openClickHandler = () => {
     toggleMenu(true)
   }
+  useScrollPosition(
+    ({ prevPos, currPos }) => {
+      if (currPos.y >= -50) {
+        setOnTop(true)
+      } else {
+        setOnTop(false)
+      }
+    },
+    [isOnTop]
+  )
 
   return (
     <Navbar
       fixed="top"
-      className={classnames(styles.navbar, styles.navbar__onLight)}
+      className={!isOnTop ? classnames(styles.navbar, styles.navbar__onLight) : styles.navbar}
     >
       <Container>
         <Fade top>

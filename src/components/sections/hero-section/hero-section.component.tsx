@@ -18,6 +18,7 @@ interface Props {
 const HeroSection:FC<Props> = ({hero}) => {
   const { virusImageFirst, virusImageSecond, virusImageThird, virusImageFourth } = useVirusAssets()
   return (
+    <div className={styles.heroBg}>
     <Container fluid className={styles.fluidContainer}>
       <Container className={styles.innerContainer}>
         <div className={styles.contentContainer}>
@@ -68,6 +69,7 @@ const HeroSection:FC<Props> = ({hero}) => {
         }
       </Media>
     </Container>
+    </div>
   )
 }
 export default HeroSection
