@@ -39,7 +39,7 @@ const HeroSection:FC<Props> = ({hero}) => {
           {matches =>
             matches ? (
               <Img
-                fluid={hero.image.localFile.childImageSharp.fluid}
+                fluid={hero.imagevirus.localFile.childImageSharp.fluid}
               />
             ) : (
               null

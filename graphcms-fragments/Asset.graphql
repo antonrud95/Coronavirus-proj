@@ -17,5 +17,23 @@ fragment Asset on Asset {
       remoteId: id
     }
   }
+  imagevirusHero {
+    ... on Hero {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
+  imageHerocovid {
+    ... on Herocovid {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
+  imagevirusHerocovid {
+    ... on Herocovid {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
   url
 }

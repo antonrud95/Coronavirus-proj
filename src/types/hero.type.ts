@@ -4,4 +4,5 @@ export interface Hero {
     text: string
     title: string
     description: string
+    imagevirus: any
 }

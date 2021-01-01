@@ -10,7 +10,17 @@ const useHeroBgAssets = () => {
           url
           localFile {
             childImageSharp {
-              fluid(maxWidth: 560) {
+              fluid(maxWidth: 1177) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        imagevirus {
+          url
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1177) {
                 ...GatsbyImageSharpFluid
               }
             }
