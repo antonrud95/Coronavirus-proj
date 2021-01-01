@@ -9,17 +9,12 @@
   padding-top: 7rem;
   padding-bottom: 3rem;
   display: flex;
+  flex-direction: column;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
   @include breakpoint('mobile') {
     padding-top: 9rem;
     padding-bottom: 12rem;
-  }
-}
-.inner-container {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  @include breakpoint('mobile') {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
   }
 }
 .hero-title {
@@ -59,8 +54,15 @@
 }
 .hero-text {
   @include breakpoint('desktop') {
-    width: 50%;
+    width: 45%;
   }
+}
+.virus-image-wrapper {
+  display: block;
+  width: 100%;
+}
+.image-virus-styles {
+  width: 100%;
 }
 .hero-image-wrapper {
   overflow-x: hidden !important;

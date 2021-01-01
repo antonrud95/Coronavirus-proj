@@ -8,7 +8,6 @@ body {
   font-family: 'Red Hat Display' !important;
   font-weight: normal;
   font-size: 18px;
-  // background: rgba(255, 241, 244, 1);
 }
 
 li {
@@ -33,8 +32,8 @@ h1 {
   color: $primary;
   margin-bottom: 24px;
   @include breakpoint('mobile') {
-    font-size: 48px !important;
-    line-height: 66px !important;
+    font-size: 44px !important;
+    line-height: 62px !important;
   }
   @include breakpoint('desktop-large') {
     font-size: 52px !important;
@@ -61,8 +60,8 @@ p {
   color: $primary;
   margin-bottom: 32px;
   @include breakpoint('mobile') {
-    font-size: 20px !important;
-    line-height: 42px !important;
+    font-size: 17px !important;
+    line-height: 39px !important;
   }
   @include breakpoint('desktop-large') {
     font-size: 24px !important;

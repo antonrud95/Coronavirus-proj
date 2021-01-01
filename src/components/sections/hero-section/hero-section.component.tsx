@@ -20,7 +20,7 @@ const HeroSection:FC<Props> = ({hero}) => {
   return (
     <div className={styles.heroBg}>
     <Container fluid className={styles.fluidContainer}>
-      <Container className={styles.innerContainer}>
+      <Container>
         <div className={styles.contentContainer}>
           <Fade bottom delay={550}>
             <h3 className={styles.heroTitle}>{hero.title}</h3>
@@ -35,18 +35,21 @@ const HeroSection:FC<Props> = ({hero}) => {
             <SButton variant="secondary" className={styles.heroBtn}>Let us help</SButton>
           </Fade>
         </div>
-        <Media query={{ maxWidth: 1199 }}>
+      </Container>
+      <Media query={{ maxWidth: 1199 }}>
           {matches =>
             matches ? (
-              <Img
-                fluid={hero.imagevirus.localFile.childImageSharp.fluid}
-              />
+              <div className={styles.virusImageWrapper}>
+                <Img
+                  fluid={hero.imagevirus.localFile.childImageSharp.fluid}
+                  className={styles.imageVirusStyles}
+                />
+              </div>
             ) : (
               null
             )
           }
-        </Media>
-      </Container>
+      </Media>
       <Media query={{ minWidth: 1200 }}>
         {matches =>
           matches ? (
