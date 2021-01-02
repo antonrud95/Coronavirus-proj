@@ -1,0 +1,64 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.container-fluid {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    padding-bottom: 50px;
+    position: relative;
+    @include breakpoint('tablet') {
+        padding-bottom: 100px;
+    }
+    .left-ornament {
+        display: none;
+        position: absolute !important;
+        bottom: 250px;
+        left: 0;
+        width: 130px;
+        @include breakpoint('desktop') {
+            display: block;
+        }
+        @include breakpoint('desktop-large') {
+            bottom: 310px;
+            left: 90px;
+        }
+    }
+    .right-ornament {
+        display: none;
+        position: absolute !important;
+        bottom: 80px;
+        right: 0;
+        width: 140px;
+        @include breakpoint('desktop') {
+            display: block;
+        }
+        @include breakpoint('desktop-large') {
+            right: 40px;
+            width: 220px;
+        }
+    }
+}
+
+.symptomps-container {
+    text-align: center;
+    .symptomps-uppertitle {
+        color: $coloredtext;
+        font-weight: 700;
+    }
+    .symptomps-text {
+        margin-bottom: 0 !important;
+        text-transform: capitalize;
+        @include breakpoint('tablet') {
+            width: 62%;
+            margin: 0 auto;
+        }
+    }
+    .symptomps-image {
+        max-width: 900px;
+        margin: 0 auto;
+        @include breakpoint('desktop-large') {
+            max-width: 1170px;
+        }
+    }
+}
+
