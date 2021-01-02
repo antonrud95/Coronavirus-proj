@@ -1,0 +1,108 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.fluid-container {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    padding-bottom: 70px;
+    position: relative;
+    @include breakpoint('tablet') {
+        padding-bottom: 148px;
+    }
+    .virus-sixth {
+        position: absolute !important;
+        top: -85px;
+        right: 0;
+        width: 130px;
+    }
+    .virus-seventh {
+        display: none;
+        position: absolute !important;
+        bottom: 128px;
+        left: 0px;
+        width: 300px;
+        z-index: -1;
+        @include breakpoint('desktop') {
+            display: block;
+        }
+        @include breakpoint('desktop-large') {
+            left: 100px;
+        }
+    }
+}
+
+.contagion-header {
+    text-align: center;
+    margin-bottom: 32px;
+    @include breakpoint('tablet') {
+        margin-bottom: 90px;
+    }
+    @include breakpoint('desktop-large') {
+        margin-bottom: 111px;
+    }
+    .header-title {
+        color: $coloredtext;
+        font-weight: 700;
+    }
+    .header-text {
+        text-transform: capitalize;
+        margin-bottom: 0;
+        @include breakpoint('tablet') {
+            width: 50%;
+            margin: 0 auto;
+        }
+    }
+}
+
+.items-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    @include breakpoint('tablet') {
+        justify-content: space-between;
+    }
+    .item-wrapper {
+        width: 100%;
+        max-width: 377px;
+        text-align: center;
+        box-shadow: 0px 35px 87px rgba(0, 0, 0, 0.11);
+        border-radius: 5px;
+        padding: 50px 30px 20px 30px;
+        border-bottom: 6px solid transparent;
+        transition: all .3s ease-in-out;
+        margin-bottom: 30px;
+        background-color: #fff;
+        &:hover {
+            border-bottom: 6px solid #FA5652;
+        }
+        @include breakpoint('tablet') {
+            width: 32%;
+            margin-bottom: 0;
+        }
+        @include breakpoint('desktop-large') {
+            max-width: 450px;
+            padding: 50px 30px 40px 30px;
+        }
+        .item-img {
+            max-width: 220px;
+            margin: 0 auto 30px auto;
+            @include breakpoint('desktop-large') {
+                max-width: 270px;
+                margin: 0 auto 50px auto;
+            }
+        }
+        .item-title {
+            color: $greentext;
+            font-weight: 700;
+            @include breakpoint('desktop-large') {
+                margin-bottom: 13px;
+            }
+        }
+        .item-text {
+            font-size: 18px !important;
+            line-height: 33px !important;
+            text-transform: capitalize;
+            color: $greentext;
+        }
+    }
+}
