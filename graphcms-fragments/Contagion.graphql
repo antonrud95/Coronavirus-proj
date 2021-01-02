@@ -1,0 +1,16 @@
+fragment Contagion on Contagion {
+  stage
+  remoteId: id
+  createdAt
+  updatedAt
+  publishedAt
+  image {
+    ... on Asset {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+    }
+  }
+  title
+  text
+}
