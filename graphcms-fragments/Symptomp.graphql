@@ -1,0 +1,17 @@
+fragment Symptomp on Symptomp {
+  stage
+  remoteId: id
+  createdAt
+  updatedAt
+  publishedAt
+  image {
+    ... on Asset {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+    }
+  }
+  uppertitle
+  title
+  text
+}
