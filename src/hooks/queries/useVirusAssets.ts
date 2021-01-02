@@ -31,6 +31,20 @@ const useVirusAssets = () => {
           }
         }
       }
+      virusImageFifth: file(relativePath: { eq: "images/virus/virus5.png" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      virusImageSixth: file(relativePath: { eq: "images/virus/virus6.png" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `)
 
