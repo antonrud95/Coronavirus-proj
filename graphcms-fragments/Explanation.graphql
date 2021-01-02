@@ -1,0 +1,17 @@
+fragment Explanation on Explanation {
+  stage
+  remoteId: id
+  createdAt
+  updatedAt
+  publishedAt
+  uppertitle
+  title
+  text
+  image {
+    ... on Asset {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+    }
+  }
+}

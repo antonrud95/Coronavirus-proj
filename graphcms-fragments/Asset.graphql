@@ -35,5 +35,11 @@ fragment Asset on Asset {
       remoteId: id
     }
   }
+  imageExplanation {
+    ... on Explanation {
+      remoteTypeName: __typename
+      remoteId: id
+    }
+  }
   url
 }

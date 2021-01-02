@@ -1,0 +1,74 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.fluid-container {
+    position: relative;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 2.5rem;
+    @include breakpoint('tablet') {
+        padding-bottom: 7rem;
+    }
+}
+.row {
+    flex-direction: column-reverse;
+    @include breakpoint('tablet') {
+        flex-direction: row;
+    }
+}
+.exp-uppertitle {
+    font-size: 30px;
+    line-height: 35px;
+    color: $coloredtext;
+}
+.exp-title {
+    margin-bottom: 18px;
+}
+.exp-text {
+    text-transform: capitalize !important;
+    margin-bottom: 36px;
+    @include breakpoint('desktop-large') {
+        font-size: 20px !important;
+        line-height: 43px !important;
+      }
+}
+.content-wrapper {
+    padding-bottom: 40px;
+    @include breakpoint('tablet') {
+        padding: 40px 0 0 50px;
+    }
+    @include breakpoint('desktop-large') {
+        padding: 90px 0 0 90px;
+    }
+}
+
+.exp-button {
+    width: 100%;
+    min-height: 65px;
+    border-radius: 33px;
+    background-color: rgba(250, 86, 82, 0.15);
+    border: none;
+    color: #FA5652;
+    @include breakpoint('mobile') {
+        max-width: 200px;
+    }
+}
+
+.image-container {
+    @include breakpoint('desktop') {
+        padding-right: 70px;
+    }
+}
+
+.virus-five {
+    display: none;
+    position: absolute !important;
+    bottom: 30px;
+    right: 0;
+    width: 100%;
+    max-width: 141px;
+    height: 292px;
+    @include breakpoint('desktop') {
+        display: block;
+    }
+}
