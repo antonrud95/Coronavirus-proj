@@ -1,0 +1,23 @@
+fragment Info on Info {
+  stage
+  remoteId: id
+  createdAt
+  updatedAt
+  publishedAt
+  number {
+    ... on Asset {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+    }
+  }
+  title
+  text
+  image {
+    ... on Asset {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+    }
+  }
+}
