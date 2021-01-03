@@ -4,6 +4,7 @@
 .fluid-container {
     padding-right: 0 !important;
     padding-left: 0 !important;
+    position: relative;
     .info-header {
         text-transform: capitalize;
         text-align: center;
@@ -23,6 +24,45 @@
         .info-text {
             font-size: 18px !important;
             line-height: 39px !important;
+        }
+    }
+    .image-seven {
+        display: none;
+        @include breakpoint('desktop') {
+            display: block;
+            position: absolute !important;
+            top: 25%;
+            left: 0;
+            width: 142px;
+            height: 284px;
+        }
+    }
+    .image-eight {
+        display: none;
+        @include breakpoint('desktop') {
+            display: block;
+            position: absolute !important;
+            right: 20px;
+            bottom: 424px;
+            width: 128px;
+        }
+        @include breakpoint('desktop-large') {
+            bottom: 18%;
+            right: 32px;
+        }
+    }
+    .image-nine {
+        display: none;
+        @include breakpoint('desktop') {
+            display: block;
+            position: absolute !important;
+            right: 0;
+            bottom: 0;
+            width: 162px;
+            height: 324px;
+        }
+        @include breakpoint('desktop-large') {
+            bottom: 5%;
         }
     }
 }
