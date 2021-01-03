@@ -1,2 +1,61 @@
 @import 'src/styles/variables';
 @import 'src/styles/mixins';
+
+.fluid-container {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    .info-header {
+        text-transform: capitalize;
+        text-align: center;
+        padding: 0 15px;
+        @include breakpoint('tablet') {
+            width: 50%;
+            margin: 0 auto;
+            padding: 0;
+        }
+        @include breakpoint('desktop-large') {
+            width: 28% !important;
+        }
+        .info-uppertitle {
+            color: $coloredtext;
+            font-weight: 700;
+        }
+        .info-text {
+            font-size: 18px !important;
+            line-height: 39px !important;
+        }
+    }
+}
+
+.info-row {
+    flex-direction: column-reverse;
+    margin-bottom: 30px;
+    @include breakpoint('tablet') {
+        flex-direction: row;
+        margin-bottom: 0;
+    }
+    &__reversed {
+        margin-bottom: 30px;
+        flex-direction: column-reverse;
+        @include breakpoint('tablet') {
+            flex-direction: row-reverse;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.right-image {
+    max-width: 555px;
+    margin: 0 auto;
+    @include breakpoint('tablet') {
+        margin: 0 0 0 auto;
+    }
+}
+
+.left-image {
+    max-width: 555px;
+    margin: 0 auto;
+    @include breakpoint('tablet') {
+        margin: 0 auto 0 0;
+    }
+}
