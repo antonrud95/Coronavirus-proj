@@ -2,6 +2,7 @@ import React from 'react'
 import {Container, Row, Col} from 'react-bootstrap'
 import Img from 'gatsby-image'
 import FC from '~/types/fc'
+import Fade from 'react-reveal/Fade';
 
 import styles from './info-item.module.scss'
 
@@ -23,11 +24,17 @@ const InfoItem: FC<Props> = ({number, image, title, text, rowStyles, imageStyles
                 </Col>
                 <Col xs="12" lg="6" className={styles.contentWrapper}>
                     <div className={styles.numberWrapper}>
-                        <Img fluid={number} className={styles.numberImage}/>
+                        <Fade bottom>
+                            <Img fluid={number} className={styles.numberImage}/>
+                        </Fade>
                     </div>
                     <div>
-                        <h3 className={styles.infoTitle}>{title}</h3>
-                        <p className={styles.infoText}>{text}</p>
+                        <Fade bottom delay={300}>
+                            <h3 className={styles.infoTitle}>{title}</h3>
+                        </Fade>
+                        <Fade bottom delay={350}>
+                            <p className={styles.infoText}>{text}</p>
+                        </Fade>
                     </div>
                 </Col>
             </Row>
