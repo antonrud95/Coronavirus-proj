@@ -8,6 +8,8 @@ import ContagionSection from '~/components/sections/contagion-section/contagion.
 import SymptompsSection from '~/components/sections/symptomps-section/symptomps.component'
 import InfoSection from '~/components/sections/info-section/info.component'
 import FeedbackSection from '~/components/sections/feedback-section/feedback.component'
+import MapSection from '~/components/sections/map-section/map.component'
+
 
 import useHeroBgAssets from '~/hooks/queries/useHeroBgAssets'
 import useExplanationAssets from '~/hooks/queries/useExplanationAssets'
@@ -29,6 +31,7 @@ const IndexPage = () => {
     <ContagionSection contagions={allGraphCmsContagion.nodes}/>
     <SymptompsSection symptomps={graphCmsSymptomp}/> 
     <InfoSection information={allGraphCmsInfo.nodes}/>
+    <MapSection />
     <FeedbackSection />
   </Layout>
   )
