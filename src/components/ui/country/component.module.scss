@@ -1,0 +1,43 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.component-wrapper {
+    display: flex;
+    max-height: 35px;
+    margin-bottom: 20px;
+    align-items: center;
+    @include breakpoint('desktop-large') {
+        margin-bottom: 40px;
+    }
+    .flag-wrapper {
+        display: flex;
+    }
+    .component-image {
+        max-width: 49px;
+        margin-right: 27px;
+    }
+    .component-country {
+        font-size: 31px !important;
+        color: #13615F !important;
+        font-weight: 500 !important;
+        margin-bottom: 0 !important;
+    }
+    .value-wrapper {
+        display: flex;
+        align-items: center;
+    }
+    .component-value {
+        font-size: 24px !important;
+        color: $greentext !important;
+        font-weight: 500 !important;
+        margin-bottom: 0 !important;
+    }
+    .red {
+        color: #F44A45;
+        margin-left: 20px;
+    }
+    .green {
+        color: #128E5A;
+        margin-left: 20px;
+    }
+}
