@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import styles from './map.module.scss'
 import { WorldMap } from "react-svg-worldmap"
-import CountryComponent from '~/components/ui/country/country.component'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 
 import ActiveSlide from '~/components/ui/active/active.component'
 
@@ -23,31 +25,50 @@ const MapSection = () => {
   if (data.length !== 0) {
     console.log(data)
   }
-
+  const [isLive, setIsLive] = useState(true)
+  const [isRecovered, setIsRecovered] = useState(false)
+  const recoveredSwap = () => {
+    setIsRecovered(true)
+    setIsLive(false)
+  }
+  const liveSwap = () => {
+    setIsRecovered(false)
+    setIsLive(true)
+  }
     return(
       <div>
         {data.length !== 0 && (
-          <>
-          <ActiveSlide 
-            title={'Live Reports'}
-            dataNumber={data[207]}
-            dataSecondNumber={data[76]}
-            dataThirdNumber={data[42]}
-            dataFourthNumber={data[186]}
-            dataFifthNumber={data[95]}
-            dataSixthNumber={data[100]}
-          />
-          <ActiveSlide 
-            title={'Recovered'}
-            dataNumber={data[207]}
-            dataSecondNumber={data[76]}
-            dataThirdNumber={data[42]}
-            dataFourthNumber={data[186]}
-            dataFifthNumber={data[95]}
-            dataSixthNumber={data[100]}
-            isRecover
-          />
-        </>
+          <div className={styles.wrapperData}>
+            <div className={styles.btnWrapper}>
+              <button className={styles.btn}><FontAwesomeIcon icon={faChevronLeft} onClick={liveSwap} style={!isLive ? {color: '#F44A45'} : {color: '#A2A5B2'}} className={styles.arrowLeft}/></button>
+              <button className={styles.btn}><FontAwesomeIcon icon={faChevronRight} onClick={recoveredSwap} className={styles.arrowRight} style={isRecovered ? {color: '#F44A45'} : {color: '#A2A5B2'}}/></button>
+            </div>
+            {isLive ? (
+              <ActiveSlide 
+              title={'Live Reports'}
+              dataNumber={data[207]}
+              dataSecondNumber={data[76]}
+              dataThirdNumber={data[42]}
+              dataFourthNumber={data[186]}
+              dataFifthNumber={data[95]}
+              dataSixthNumber={data[100]}
+            />
+            ) : null}
+            {isRecovered ? (
+              <ActiveSlide 
+              title={'Recovered'}
+              dataNumber={data[207]}
+              dataSecondNumber={data[76]}
+              dataThirdNumber={data[42]}
+              dataFourthNumber={data[186]}
+              dataFifthNumber={data[95]}
+              dataSixthNumber={data[100]}
+              isRecover
+            />
+            ) : null}
+            
+         
+        </div>
         )}
       </div>
     )
