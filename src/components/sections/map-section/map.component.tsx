@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import styles from './map.module.scss'
-import { WorldMap } from "react-svg-worldmap"
 import {Container} from 'react-bootstrap'
+import Img from 'gatsby-image'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight, faChevronLeft, faSearch } from '@fortawesome/free-solid-svg-icons'
+import useMapAssets from '~/hooks/queries/useMapAssets'
 
 import ActiveSlide from '~/components/ui/active/active.component'
 
@@ -56,6 +57,7 @@ const MapSection = () => {
     setInputValue('')
   }
 
+  const {mapBg} = useMapAssets()
     return(
       <Container className={styles.mapContainer}>
         {data.length !== 0 && (
@@ -89,6 +91,7 @@ const MapSection = () => {
             ) : null}
         </div>
         )}
+        <Img fluid={mapBg.childImageSharp.fluid} className={styles.mapBg}/>
         {!onSearch ? <div className={styles.searchWrapper}><FontAwesomeIcon icon={faSearch} onClick={shownInputField} className={styles.search}/></div> : <input onChange={onChangeInput} onBlur={shownInputField} className={styles.inputStyles}/>}
         <div className={styles.countriesWindow}>
           {onFilteredCountry.map((item) => {
