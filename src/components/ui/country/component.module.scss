@@ -4,34 +4,54 @@
 .component-wrapper {
     display: flex;
     justify-content: space-between;
-    max-height: 35px;
+    max-height: 18px;
     margin-bottom: 20px;
     align-items: center;
+    @include breakpoint('desktop') {
+        max-height: 35px;
+    }
     @include breakpoint('desktop-large') {
         margin-bottom: 40px;
     }
     .flag-wrapper {
         display: flex;
+        align-items: center;
+        max-height: 18px !important;
+        @include breakpoint('desktop') {
+            max-height: 35px !important;
+        }
     }
     .component-image {
-        max-width: 49px;
-        margin-right: 27px;
+        max-width: 25px;
+        margin-right: 13px;
+        min-height: 18px;
+        @include breakpoint('desktop') {
+            max-width: 49px;
+            min-height: 35px;
+            margin-right: 27px;
+        }
     }
     .component-country {
-        font-size: 31px !important;
+        font-size: 17px !important;
         color: #13615F !important;
         font-weight: 500 !important;
         margin-bottom: 0 !important;
+        @include breakpoint('desktop') {
+            font-size: 31px !important;
+        }
     }
     .value-wrapper {
         display: flex;
         align-items: center;
     }
     .component-value {
-        font-size: 24px !important;
+        font-size: 17px !important;
         color: $greentext !important;
         font-weight: 500 !important;
         margin-bottom: 0 !important;
+        @include breakpoint('desktop') {
+            font-size: 24px !important;
+        }
     }
     .red {
         color: #F44A45;

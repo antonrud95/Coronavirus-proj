@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import styles from './map.module.scss'
 import { WorldMap } from "react-svg-worldmap"
+import {Container} from 'react-bootstrap'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight, faChevronLeft, faSearch } from '@fortawesome/free-solid-svg-icons'
 
 import ActiveSlide from '~/components/ui/active/active.component'
 
@@ -35,6 +36,10 @@ const MapSection = () => {
     setInputValue(e.target.value)
   }
 
+  const onFilteredCountry = data.filter(item => {
+   return inputValue !== '' ? item.country.includes(inputValue) : null
+  })
+
   const recoveredSwap = () => {
     setIsRecovered(true)
     setIsLive(false)
@@ -43,8 +48,16 @@ const MapSection = () => {
     setIsRecovered(false)
     setIsLive(true)
   }
+
+  const [onSearch, setOnSearch] = useState(false);
+
+  const shownInputField = () => {
+    setOnSearch(!onSearch)
+    setInputValue('')
+  }
+
     return(
-      <div>
+      <Container className={styles.mapContainer}>
         {data.length !== 0 && (
           <div className={styles.wrapperData}>
             <div className={styles.btnWrapper}>
@@ -74,22 +87,22 @@ const MapSection = () => {
               isRecover
             />
             ) : null}
-            
-         
         </div>
         )}
-        <input onChange={onChangeInput}/>
-        {data.map((item) => {
-          return(
-            <div key={Math.random()}>
-            <p >Country: {item.country}</p>
-            <img src={item.countryInfo.flag}/>
-            <p >Cases: {item.cases}</p>
-            <p >Recovered: {item.recovered}</p>
-            </div>
-          )
-        })}
-      </div>
+        {!onSearch ? <div className={styles.searchWrapper}><FontAwesomeIcon icon={faSearch} onClick={shownInputField} className={styles.search}/></div> : <input onChange={onChangeInput} onBlur={shownInputField} className={styles.inputStyles}/>}
+        <div className={styles.countriesWindow}>
+          {onFilteredCountry.map((item) => {
+            return(
+              <div key={Math.random()} className={styles.countryWrapper}>
+                <p >Country: {item.country}</p>
+                <img src={item.countryInfo.flag}/>
+                <p >Cases: {item.cases}</p>
+                <p >Recovered: {item.recovered}</p>
+              </div>
+            )
+          })}
+        </div>
+      </Container>
     )
 }
   

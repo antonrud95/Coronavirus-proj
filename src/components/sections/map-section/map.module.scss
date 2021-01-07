@@ -1,20 +1,43 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.map-container {
+    position: relative !important;
+}
+
 .wrapper-data {
-    max-width: 504px;
+    max-width: 100%;
     box-shadow: 0px 7px 95px rgba(0, 0, 0, 0.07);
     background: linear-gradient(360deg, #FFFBFB -79.45%, #FDFDFD 105.35%);
-    padding: 54px 54px 34px 54px;
+    padding: 20px 20px 20px 20px;
     position: relative;
+    @include breakpoint('tablet') {
+        position: absolute;
+        right: 0;
+        top: 0;
+        min-width: 404px;
+    }
+    @include breakpoint('desktop-large') {
+        padding: 54px 54px 14px 54px;
+        min-width: 504px;
+    }
     .btn-wrapper {
         position: absolute;
-        top: 54px;
-        right: 54px;
+        top: 20px;
+        right: 20px;
         box-shadow: 0px 5px 50px rgba(87, 1, 0, 0.1);
         border-radius: 6.16667px;
-        width: 86px;
-        height: 49px;
+        width: 60px;
+        height: 40px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @include breakpoint('desktop-large') {
+            top: 54px;
+            right: 54px;
+            width: 86px;
+            height: 49px;
+        }
         &:after {
             content: '';
             width: 2px;
@@ -32,5 +55,59 @@
             width: 100%;
             outline: none;
         }
+    }
+}
+
+.country-wrapper {
+    background: linear-gradient(360deg, #FFFBFB -79.45%, #FDFDFD 105.35%);
+    box-shadow: 0px 7px 95px rgba(0, 0, 0, 0.07);
+    max-width: 320px;
+}
+
+.contries-window {
+    height: 650px;
+    overflow: hidden !important;
+}
+
+.search-wrapper {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    box-shadow: 0px 7px 76px rgba(146, 53, 46, 0.18);
+    border-radius: 4.16667px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    .search {
+        cursor: pointer;
+        font-size: 20px;
+        color: #F44A45;
+    }
+    @include breakpoint('tablet') {
+        position: absolute;
+        right: 440px;
+        width: 76px;
+        height: 76px;
+        .search {
+            font-size: 35px;
+        }
+    }
+    @include breakpoint('desktop-large') {
+        right: 540px;
+    }
+}
+
+.input-styles {
+    height: 40px;
+    @include breakpoint('tablet') {
+        position: absolute;
+        right: 440px;
+        top: 0;
+    }
+    @include breakpoint('desktop-large') {
+        position: absolute;
+        right: 540px;
+        top: 0;
     }
 }
