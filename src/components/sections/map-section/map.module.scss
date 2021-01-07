@@ -15,6 +15,16 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        &:after {
+            content: '';
+            width: 2px;
+            height: 20px;
+            background-color: #DEE1ED;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
         .btn {
             border: none;
             background-color: #fff;

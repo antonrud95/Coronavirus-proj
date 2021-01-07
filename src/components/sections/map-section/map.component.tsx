@@ -21,12 +21,20 @@ const MapSection = () => {
     getData();
 
   }, []);
-  
-  if (data.length !== 0) {
+
+  if(data.length !==0) {
     console.log(data)
   }
+  
   const [isLive, setIsLive] = useState(true)
   const [isRecovered, setIsRecovered] = useState(false)
+
+  const [inputValue, setInputValue] = useState('')
+
+  const onChangeInput = (e) => {
+    setInputValue(e.target.value)
+  }
+
   const recoveredSwap = () => {
     setIsRecovered(true)
     setIsLive(false)
@@ -41,7 +49,7 @@ const MapSection = () => {
           <div className={styles.wrapperData}>
             <div className={styles.btnWrapper}>
               <button className={styles.btn}><FontAwesomeIcon icon={faChevronLeft} onClick={liveSwap} style={!isLive ? {color: '#F44A45'} : {color: '#A2A5B2'}} className={styles.arrowLeft}/></button>
-              <button className={styles.btn}><FontAwesomeIcon icon={faChevronRight} onClick={recoveredSwap} className={styles.arrowRight} style={isRecovered ? {color: '#F44A45'} : {color: '#A2A5B2'}}/></button>
+              <button className={styles.btn}><FontAwesomeIcon icon={faChevronRight} onClick={recoveredSwap} className={styles.arrowRight} style={!isRecovered ? {color: '#F44A45'} : {color: '#A2A5B2'}}/></button>
             </div>
             {isLive ? (
               <ActiveSlide 
@@ -70,6 +78,17 @@ const MapSection = () => {
          
         </div>
         )}
+        <input onChange={onChangeInput}/>
+        {data.map((item) => {
+          return(
+            <div key={Math.random()}>
+            <p >Country: {item.country}</p>
+            <img src={item.countryInfo.flag}/>
+            <p >Cases: {item.cases}</p>
+            <p >Recovered: {item.recovered}</p>
+            </div>
+          )
+        })}
       </div>
     )
 }
