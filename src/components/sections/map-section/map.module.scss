@@ -65,11 +65,17 @@
     background: linear-gradient(360deg, #FFFBFB -79.45%, #FDFDFD 105.35%);
     box-shadow: 0px 7px 95px rgba(0, 0, 0, 0.07);
     max-width: 320px;
-}
-
-.contries-window {
-    height: 650px;
-    overflow: hidden !important;
+    .filtered-country,
+    .filtered-cases,
+    .filtered-recovered {
+        font-size: 17px;
+        color: $greentext;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+    .filtered-image {
+        max-width: 150px;
+    }
 }
 
 .search-wrapper {
@@ -127,5 +133,26 @@
     @include breakpoint('desktop-large') {
         max-width: 880px;
         margin-top: 50px;
+    }
+}
+
+.countries-window {
+    position: absolute !important;
+    bottom: -50%;
+    left: 0;
+    min-width: 200px;
+    max-height: 300px !important;
+    overflow: auto;
+    background-color: #fff;
+    z-index: 1000;
+    @include breakpoint('mobile') {
+        bottom: inherit;
+        top: 40%;
+    }
+    @include breakpoint('tablet') {
+        top: 100px;
+    }
+    @include breakpoint('desktop-large') {
+        max-height: 500px !important;
     }
 }

@@ -97,10 +97,10 @@ const MapSection = () => {
           {onFilteredCountry.map((item) => {
             return(
               <div key={Math.random()} className={styles.countryWrapper}>
-                <p >Country: {item.country}</p>
-                <img src={item.countryInfo.flag}/>
-                <p >Cases: {item.cases}</p>
-                <p >Recovered: {item.recovered}</p>
+                <p className={styles.filteredCountry}>Country: {item.country}</p>
+                <img src={item.countryInfo.flag} className={styles.filteredImage}/>
+                <p className={styles.filteredCases}>Cases: {item.cases}</p>
+                <p className={styles.filteredRecovered}>Recovered: {item.recovered}</p>
               </div>
             )
           })}
